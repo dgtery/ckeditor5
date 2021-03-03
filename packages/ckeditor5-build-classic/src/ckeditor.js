@@ -5,7 +5,8 @@
 
 // The editor creator to use.
 import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
-
+import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
+import SelectAll from '@ckeditor/ckeditor5-select-all/src/selectall';
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
@@ -28,12 +29,16 @@ import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
+import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties.js';
+import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperties';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
+	RemoveFormat,
+	SelectAll,
 	Essentials,
 	UploadAdapter,
 	Autoformat,
@@ -56,13 +61,44 @@ ClassicEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
+	TableProperties,
+	TableCellProperties,
 	TextTransformation
+];
+const customColorPalette = [
+	{
+		color: 'hsl(4, 90%, 58%)',
+		label: 'Red'
+	},
+	{
+		color: 'hsl(340, 82%, 52%)',
+		label: 'Pink'
+	},
+	{
+		color: 'hsl(291, 64%, 42%)',
+		label: 'Purple'
+	},
+	{
+		color: 'hsl(262, 52%, 47%)',
+		label: 'Deep Purple'
+	},
+	{
+		color: 'hsl(231, 48%, 48%)',
+		label: 'Indigo'
+	},
+	{
+		color: 'hsl(207, 90%, 54%)',
+		label: 'Blue'
+	},
 ];
 
 // Editor configuration.
 ClassicEditor.defaultConfig = {
 	toolbar: {
 		items: [
+			'removeformat',
+			'selectall',
+			'|',
 			'heading',
 			'|',
 			'bold',
@@ -92,11 +128,18 @@ ClassicEditor.defaultConfig = {
 	},
 	table: {
 		contentToolbar: [
-			'tableColumn',
-			'tableRow',
-			'mergeTableCells'
-		]
+			'tableColumn', 'tableRow', 'mergeTableCells',
+			'tableProperties', 'tableCellProperties'
+		],
+		tableProperties: {
+			borderColors: customColorPalette,
+			backgroundColors: customColorPalette
+		},
+		tableCellProperties: {
+			borderColors: customColorPalette,
+			backgroundColors: customColorPalette
+		}
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'en'
+	language: 'zh-cn'
 };
