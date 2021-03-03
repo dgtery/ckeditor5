@@ -12,18 +12,37 @@ import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapte
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
-import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
+import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
+import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
+import Subscript from '@ckeditor/ckeditor5-basic-styles/src/subscript'
+import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript'
+
 import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
 import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
+
+import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
+import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
+import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
+import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
+
 import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
+import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage';
 import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
+
 import Indent from '@ckeditor/ckeditor5-indent/src/indent';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import Link from '@ckeditor/ckeditor5-link/src/link';
 import List from '@ckeditor/ckeditor5-list/src/list';
+
+import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
+import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock';
+import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
+
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
@@ -44,18 +63,35 @@ ClassicEditor.builtinPlugins = [
 	Autoformat,
 	Bold,
 	Italic,
+	Underline,
+	Strikethrough,
+	Subscript,
+	Superscript,
 	BlockQuote,
 	CKFinder,
 	EasyImage,
 	Heading,
+
+	FontColor,
+	FontBackgroundColor,
+	FontFamily,
+	FontSize,
+
 	Image,
 	ImageCaption,
 	ImageStyle,
 	ImageToolbar,
+	ImageResize, LinkImage,
 	ImageUpload,
 	Indent,
-	Link,
+	Alignment,
 	List,
+
+	Link,
+	HorizontalLine,
+	CodeBlock,
+	BlockQuote,
+
 	MediaEmbed,
 	Paragraph,
 	PasteFromOffice,
@@ -103,16 +139,29 @@ ClassicEditor.defaultConfig = {
 			'|',
 			'bold',
 			'italic',
-			'link',
+			'underline',
+			'strikethrough',
+			'subscript',
+			'superscript',
+			'|',
+			'fontFamily',
+			'fontSize',
+			'fontColor',
+			'fontBackgroundColor',
+			'|',
 			'bulletedList',
 			'numberedList',
-			'|',
+			'alignment',
 			'indent',
 			'outdent',
 			'|',
-			'imageUpload',
+			'link',
+			'horizontalLine',
+			'blockQuote',
+			'codeBlock',
 			'blockQuote',
 			'insertTable',
+			'imageUpload',
 			'mediaEmbed',
 			'undo',
 			'redo'
